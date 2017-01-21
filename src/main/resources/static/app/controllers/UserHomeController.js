@@ -1,6 +1,7 @@
 (function() {
-var UserHomeController = function($scope,$log,$location,appService){
-	
+var UserHomeController = function($scope,$stateParams,$log,$location){
+    $scope.username = $stateParams.username;
+	//$scope.$state = $state;
 	
 	/*$scope.login = function() {
     //$rootScope.loggedInUser = $scope.username;
@@ -15,8 +16,12 @@ var UserHomeController = function($scope,$log,$location,appService){
 			
    
   };*/
+   /* $log.log($scope.params);
+    $scope.overview = function(){
+        $location.path("/userHome/"+$scope.params + "/overview")
+    };*/
 };
 
-UserHomeController.$inject=['$scope','$log','$location','appService'];	angular.module('myApp').controller('UserHomeController',UserHomeController);
+UserHomeController.$inject=['$scope','$stateParams','$log','$location'];	angular.module('myApp').controller('UserHomeController',UserHomeController);
 
 }());
